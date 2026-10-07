@@ -171,6 +171,5 @@ function update(){
  document.querySelectorAll('aside .sec').forEach(e=>e.classList.toggle('active',e.querySelector('.sec-link').getAttribute('href')==='#'+cur.id));
 }
 addEventListener('scroll',update,{passive:true});update();
-setOpen(document.querySelector('aside .sec.active')||document.querySelector('aside .sec'),true);
 if(location.hash.startsWith('#t-'))openTerm(decodeURIComponent(location.hash.slice(1)),false);
 </script></body></html>
