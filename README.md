@@ -1,4 +1,4 @@
-# e용어집
+# 에너지 산업 이해
 
 에너지 업계 용어집. https://fricom.github.io/e-glossary/
 
