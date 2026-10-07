@@ -5,13 +5,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
- --bg:#ffffff;--surface:#f6f7f9;--text:#1b1d21;--muted:#5b6170;--border:#e3e6eb;--accent:#2457d6;--accent-bg:#eaf0fd;--scrim:rgba(15,18,24,.4);
+ --bg:#ffffff;--surface:#f6f7f9;--text:#1b1d21;--muted:#5b6170;--border:#e3e6eb;--accent:#2457d6;--accent-bg:#eaf0fd;--group:#0277b5;
+ /* 색 규칙: --accent(파랑) = 섹션 제목·현재 위치·링크 hover·포커스, --group(하늘색) = 섹션 안 그룹 구분(표 그룹 행, 사이드바 그룹, 상세 창 그룹 라벨). 본문 대비 4.5:1 이상 */
+--scrim:rgba(15,18,24,.4);
  --side-w:264px;
  /* motion: 드로어는 이동 거리가 길어 280ms, 퇴장은 더 짧게 */
  --motion-enter:280ms;--motion-exit:200ms;
  --ease-enter:cubic-bezier(0.16,1,0.3,1);--ease-exit:cubic-bezier(0.4,0,1,1);
 }
-@media (prefers-color-scheme:dark){:root{--bg:#131518;--surface:#1b1e23;--text:#e7e9ed;--muted:#a0a7b4;--border:#2c3038;--accent:#7ea2ff;--accent-bg:#1f2a44;--scrim:rgba(0,0,0,.55)}}
+@media (prefers-color-scheme:dark){:root{--bg:#131518;--surface:#1b1e23;--text:#e7e9ed;--muted:#a0a7b4;--border:#2c3038;--accent:#7ea2ff;--accent-bg:#1f2a44;--group:#7dd3fc;--scrim:rgba(0,0,0,.55)}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 html:has(dialog[open]){overflow:hidden;scrollbar-gutter:stable}
@@ -32,7 +34,7 @@ aside .chev{width:8px;height:8px;border-right:1.5px solid currentColor;border-bo
 aside .sec-tog[aria-expanded="true"] .chev{transform:rotate(45deg)}
 aside .sec ul{padding:0 0 8px 12px;border-left:1px solid var(--border);margin:0 0 0 12px}
 aside .sec ul[hidden]{display:none}
-aside .sec ul li.grp{padding:8px 8px 2px;font-size:14px;font-weight:600;color:var(--text)}
+aside .sec ul li.grp{padding:8px 8px 2px;font-size:14px;font-weight:600;color:var(--group)}
 aside .sec ul a{display:block;padding:4px 8px;font-size:14px;color:var(--muted);text-decoration:none;border-radius:4px}
 aside .sec ul a:hover{background:var(--accent-bg);color:var(--accent)}
 aside .sec-link:hover{color:var(--accent)}
@@ -43,12 +45,12 @@ main{margin-left:var(--side-w);padding:48px 64px 96px;max-width:calc(var(--side-
 main>header h1{font-size:28px;font-weight:700;margin:0 0 8px}
 main>header p{margin:0;color:var(--muted);font-size:14px}
 .block{margin-top:80px}
-.block h2{font-size:24px;font-weight:700;margin:0 0 4px;color:var(--accent)}
+.block h2{font-size:20px;font-weight:700;margin:0 0 4px;color:var(--accent)}
 .sdesc{margin:0 0 16px;color:var(--muted);font-size:14px}
 .tbl{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:14px}
 th{text-align:left;font-weight:600;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
-tr.grp th{padding:24px 12px 8px;font-size:14px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--border);background:none}
+tr.grp th{padding:24px 12px 8px;font-size:14px;font-weight:600;color:var(--group);border-bottom:1px solid var(--border);background:none}
 tbody tr.grp{cursor:auto} tbody tr.grp:hover{background:none}
 td{padding:12px;border-bottom:1px solid var(--border);vertical-align:top}
 tbody tr{cursor:pointer}
@@ -70,8 +72,8 @@ dialog.drawer.is-open::backdrop{opacity:1;transition:opacity var(--motion-enter)
 .d-inner{display:flex;flex-direction:column;height:100%}
 .d-head{display:flex;align-items:flex-start;gap:16px;padding:24px 32px 16px;border-bottom:1px solid var(--border)}
 .d-head .t{flex:1;min-width:0}
-.d-head h2{margin:0;font-size:20px;font-weight:700;outline:none}
-.d-head .grp{margin:0 0 4px;font-size:14px;font-weight:600;color:var(--accent)}
+.d-head h2{margin:0;font-size:16px;font-weight:700;outline:none}
+.d-head .grp{margin:0 0 4px;font-size:14px;font-weight:600;color:var(--group)}
 .d-head .full{margin:4px 0 0;color:var(--muted);font-size:14px}
 .d-close{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;color:var(--muted);font-size:20px;line-height:1}
 .d-close:hover{background:var(--surface);color:var(--text)}
