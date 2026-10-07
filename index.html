@@ -5,15 +5,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
- --bg:#ffffff;--surface:#f6f7f9;--text:#1b1d21;--muted:#5b6170;--border:#e3e6eb;--accent:#2457d6;--accent-bg:#eaf0fd;--group:#0a6bdb;
- /* 색 규칙: --accent(파랑) = 섹션 제목·현재 위치·링크 hover·포커스, --group(맑은 파랑) = 섹션 안 그룹 구분(표 그룹 행, 사이드바 그룹, 상세 창 그룹 라벨). 본문 대비 4.5:1 이상 */
+ --bg:#ffffff;--surface:#f6f7f9;--text:#1b1d21;--muted:#5b6170;--border:#e3e6eb;--accent:#2457d6;--accent-bg:#eaf0fd;--group:#4a505c;--group-bg:#f1f3f6;
+ /* 색 규칙: --accent(파랑) = 섹션 제목·현재 위치·링크 hover·포커스, --group(회색 글자)·--group-bg(연한 회색 띠) = 섹션 안 그룹 구분(표 그룹 행은 띠, 사이드바 그룹·상세 창 그룹 라벨은 글자만). 본문 대비 4.5:1 이상 */
 --scrim:rgba(15,18,24,.4);
  --side-w:264px;
  /* motion: 드로어는 이동 거리가 길어 280ms, 퇴장은 더 짧게 */
  --motion-enter:280ms;--motion-exit:200ms;
  --ease-enter:cubic-bezier(0.16,1,0.3,1);--ease-exit:cubic-bezier(0.4,0,1,1);
 }
-@media (prefers-color-scheme:dark){:root{--bg:#131518;--surface:#1b1e23;--text:#e7e9ed;--muted:#a0a7b4;--border:#2c3038;--accent:#7ea2ff;--accent-bg:#1f2a44;--group:#93c5fd;--scrim:rgba(0,0,0,.55)}}
+@media (prefers-color-scheme:dark){:root{--bg:#131518;--surface:#1b1e23;--text:#e7e9ed;--muted:#a0a7b4;--border:#2c3038;--accent:#7ea2ff;--accent-bg:#1f2a44;--group:#b4bac6;--group-bg:#22262d;--scrim:rgba(0,0,0,.55)}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 html:has(dialog[open]){overflow:hidden;scrollbar-gutter:stable}
@@ -50,7 +50,8 @@ main>header p{margin:0;color:var(--muted);font-size:14px}
 .tbl{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:14px}
 th{text-align:left;font-weight:600;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
-tr.grp th{padding:24px 12px 8px;font-size:14px;font-weight:600;color:var(--group);border-bottom:1px solid var(--border);background:none}
+tr.grp th{padding:8px 12px;font-size:14px;font-weight:600;color:var(--group);background:var(--group-bg);border-bottom:0;border-top:24px solid var(--bg)}
+tbody tr.grp:first-child th{border-top:0}
 tbody tr.grp{cursor:auto} tbody tr.grp:hover{background:none}
 td{padding:12px;border-bottom:1px solid var(--border);vertical-align:top}
 tbody tr{cursor:pointer}
@@ -87,7 +88,7 @@ dialog.drawer.is-open::backdrop{opacity:1;transition:opacity var(--motion-enter)
 .d-body blockquote p{margin:0}
 .d-body table{margin:12px 0}
 .d-body th,.d-body td{border:1px solid var(--border);padding:8px 12px}
-.d-body tr.grp th{text-align:left;padding:16px 12px 8px;border-left:0;border-right:0;border-top:0}
+.d-body tr.grp th{text-align:left;padding:6px 12px;border:1px solid var(--border)}
 .fig{margin:16px 0 4px;overflow-x:auto}
 .fig svg{display:block;width:100%;min-width:520px;height:auto}
 .fig text{font-size:15px;fill:var(--text);text-anchor:middle;dominant-baseline:central}
